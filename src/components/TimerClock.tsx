@@ -1,6 +1,6 @@
 import React from "react";
 
-const TimerClock = () => {
+const TimerClock: React.FC = () => {
   return <div>TimerClock</div>;
 };
 

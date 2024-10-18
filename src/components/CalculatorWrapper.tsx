@@ -1,12 +1,21 @@
 import React, { useState } from "react";
 import { CalculatorInput, CalculatorOutput } from "./index";
 
-const CalculatorWrapper: React.FC = () => {
+interface CalculatorWrapperProps {
+  // Incoming function from App.tsx to grab the recommended caffeine value
+  onRecommendedCaffeineChange: (caffeine: number) => void;
+}
+
+const CalculatorWrapper: React.FC<CalculatorWrapperProps> = ({
+  onRecommendedCaffeineChange,
+}) => {
   const [recommendedCaffeine, setRecommendedCaffeine] = useState<number>(0);
 
   const handleCalculate = (weight: number) => {
     const recommendedCaffeine = weight * 6;
     setRecommendedCaffeine(recommendedCaffeine);
+    // Pass the value up to App.tsx
+    onRecommendedCaffeineChange(recommendedCaffeine);
   };
 
   return (

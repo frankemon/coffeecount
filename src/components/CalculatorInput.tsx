@@ -9,7 +9,6 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ onCalculate }) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setWeight(Number(event.target.value));
-    console.log("weight", weight);
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
