@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
-interface UserInputProps {
+interface CalculatorInputProps {
   onCalculate: (weight: number) => void;
 }
 
-const UserInput: React.FC<UserInputProps> = ({ onCalculate }) => {
+const CalculatorInput: React.FC<CalculatorInputProps> = ({ onCalculate }) => {
   const [weight, setWeight] = useState<number>(0);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -19,10 +19,9 @@ const UserInput: React.FC<UserInputProps> = ({ onCalculate }) => {
 
   return (
     <div>
-      {/* {weight === 0 && <p>Please fill in your weight!</p>} */}
-      <form onSubmit={handleSubmit} className="flex flex-col">
-        <label htmlFor="weight" className="font-xl font-bold">
-          Your weight
+      <form onSubmit={handleSubmit} className="">
+        <label htmlFor="weight" className="">
+          Your weight:
         </label>
         <div className="flex justify-center items-center gap-1">
           <input
@@ -33,7 +32,7 @@ const UserInput: React.FC<UserInputProps> = ({ onCalculate }) => {
           <button
             type="submit"
             disabled={weight === 0}
-            className="bg-textPrimary text-bgPrimary p-2 rounded-md font-xl font-bold"
+            className="bg-textPrimary text-bgPrimary p-2 rounded-md"
           >
             Calculate
           </button>
@@ -43,4 +42,4 @@ const UserInput: React.FC<UserInputProps> = ({ onCalculate }) => {
   );
 };
 
-export default UserInput;
+export default CalculatorInput;
