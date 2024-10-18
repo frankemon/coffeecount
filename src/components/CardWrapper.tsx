@@ -1,29 +1,48 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card } from "./index";
 
 interface CardWrapperProps {
+  recommendedCaffeine: number;
   totalCaffeine: number;
   totalServings: number;
   onTotalCaffeineChange: (caffeine: number) => void;
   onServingsChange: (servings: number) => void;
+  onAddCaffeine: () => void;
 }
 
 const CardWrapper: React.FC<CardWrapperProps> = ({
+  recommendedCaffeine,
   totalCaffeine,
   totalServings,
   onTotalCaffeineChange,
   onServingsChange,
+  onAddCaffeine,
 }) => {
-  //   const [totalCaffeine, setTotalCaffeine] = useState<number>(0);
   const handleClickPlus = (caffeine: number) => {
+    if (recommendedCaffeine === 0) {
+      return;
+    }
     const newTotalCaffeine = totalCaffeine + caffeine;
     const newTotalServings = totalServings + 1;
     onTotalCaffeineChange(newTotalCaffeine);
     onServingsChange(newTotalServings);
+    onAddCaffeine();
   };
   const handleClickMinus = (caffeine: number) => {
-    const newTotalCaffeine = totalCaffeine - caffeine;
+    // If servings or caffeine is 0, do nothing
+    if (totalServings === 0 || caffeine === 0) {
+      return;
+    }
+    let newTotalCaffeine = totalCaffeine - caffeine;
     const newTotalServings = totalServings - 1;
+    // If servings reaches 0, reset caffine
+    if (newTotalServings === 0) {
+      newTotalCaffeine = 0;
+    }
+    // If caffeine calculation goes below 0, set to 0
+    if (newTotalCaffeine <= 0) {
+      newTotalCaffeine = 0;
+    }
     onTotalCaffeineChange(newTotalCaffeine);
     onServingsChange(newTotalServings);
   };

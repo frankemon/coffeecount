@@ -5,6 +5,6 @@ export { default as CalculatorOutput } from "./CalculatorOutput.tsx";
 export { default as CardWrapper } from "./CardWrapper.tsx";
 export { default as TimerClock } from "./TimerClock.tsx";
 export { default as TimerBar } from "./TimerBar.tsx";
-export { default as TimerWrapper } from "./TimerWrapper.tsx";
+export { default as InfoWrapper } from "./InfoWrapper.tsx";
 export { default as Card } from "./Card.tsx";
 export { default as Footer } from "./Footer.tsx";
