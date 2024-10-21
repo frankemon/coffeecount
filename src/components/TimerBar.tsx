@@ -29,11 +29,11 @@ const TimerBar: React.FC<TimerBarProps> = ({ caffeine, time }) => {
     <div className="flex items-center gap-1">
       <div
         id="timerBarOuter"
-        className="border-2 border-textPrimary h-12 w-[90%] rounded-md"
+        className="border-2 border-primary h-12 w-[90%] rounded-md"
       >
         <div
           id="timerBarInner"
-          className="bg-textPrimary h-full transition-all duration-500 ease-in-out"
+          className="bg-primary h-full transition-all duration-500 ease-in-out"
           style={{ width: widthPercentage }}
         ></div>
       </div>

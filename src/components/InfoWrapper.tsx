@@ -1,3 +1,4 @@
+import { FaArrowRotateLeft } from "react-icons/fa6";
 import { TimerBar, TimerClock } from "./index";
 import React from "react";
 
@@ -34,17 +35,24 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
   }, [recommended, total, cups]);
 
   return (
-    <div>
-      <div className="flex flex-col items-center justify-center w-full">
-        <div>
-          Total: {totalCaffeine}mg / Recommended: {recommendedCaffeine}mg
+    <div className="">
+      <div className="flex gap-4 justify-center items-center pb-4">
+        <div className="flex flex-col items-center justify-center w-full">
+          <div>
+            Total: {totalCaffeine}mg / Recommended: {recommendedCaffeine}mg
+          </div>
+          <div className="h-1 w-full bg-primary"></div>
+          <div>
+            Cups today: <span>{servings}</span>
+          </div>
         </div>
-        <div className="h-1 w-full bg-textPrimary"></div>
         <div>
-          Cups today: <span>{servings}</span>
+          <div className="flex flex-col justify-center items-center mt-4 p-4 border-2 border-primary rounded-md cursor-pointer">
+            <FaArrowRotateLeft className="bg-secondary" />
+            Reset
+          </div>
         </div>
       </div>
-      <br />
       <TimerBar caffeine={totalCaffeine} time={time} />
       <TimerClock
         resetTimer={resetTimer}

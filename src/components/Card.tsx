@@ -29,7 +29,7 @@ const Card: React.FC<CardProps> = ({
     onClickPlus(caffeine);
   };
   return (
-    <div className="flex flex-col justify-center items-center w-full gap-2 p-4 border rounded-md border-textPrimary">
+    <div className="flex flex-col justify-center items-center w-full gap-2 p-4 border-2 rounded-md border-primary">
       <p>{size}ml</p>
       <div className="w-12">
         <img src={cup} className={`transform scale-${scaleValue}`} />
@@ -38,15 +38,15 @@ const Card: React.FC<CardProps> = ({
       <div className="flex gap-4">
         <div
           onClick={handleClickMinus}
-          className="flex flex-col justify-center items-center w-8 h-8 bg-textPrimary rounded-full cursor-pointer"
+          className="flex flex-col justify-center items-center w-8 h-8 rounded-full cursor-pointer bg-primary"
         >
-          <FaMinus className="text-bgPrimary" />
+          <FaMinus className="text-secondary" />
         </div>
         <div
           onClick={handleClickPlus}
-          className="flex flex-col justify-center items-center w-8 h-8 bg-textPrimary rounded-full cursor-pointer"
+          className="flex flex-col justify-center items-center w-8 h-8 rounded-full cursor-pointer bg-primary"
         >
-          <FaPlus className="text-bgPrimary" />
+          <FaPlus className="text-secondary" />
         </div>
       </div>
     </div>

@@ -41,32 +41,33 @@ const App: React.FC = () => {
       <Nav />
       <div className="flex-grow flex flex-col justify-center items-center gap-4 text-lg font-bold">
         <div className="w-full">
-          <CalculatorWrapper
-            onRecommendedCaffeineChange={handleRecommendedCaffeineChange}
-          />
+          {recommendedCaffeine === 0 ? (
+            <CalculatorWrapper
+              onRecommendedCaffeineChange={handleRecommendedCaffeineChange}
+            />
+          ) : (
+            <>
+              <CardWrapper
+                recommendedCaffeine={recommendedCaffeine}
+                onTotalCaffeineChange={handleTotalCaffeineChange}
+                onServingsChange={handleServingsChange}
+                totalCaffeine={totalCaffeine}
+                totalServings={servings}
+                onAddCaffeine={handleAddCaffeine}
+              />
+              <InfoWrapper
+                recommended={recommendedCaffeine}
+                total={totalCaffeine}
+                cups={servings}
+                resetTimer={resetTimer}
+                onResetComplete={handleResetComplete}
+              />
+              <p className="italic">
+                *Recommended daily intake is suggested as 6mg/kg of bodyweight
+              </p>
+            </>
+          )}
         </div>
-        <div className="w-full">
-          <CardWrapper
-            recommendedCaffeine={recommendedCaffeine}
-            onTotalCaffeineChange={handleTotalCaffeineChange}
-            onServingsChange={handleServingsChange}
-            totalCaffeine={totalCaffeine}
-            totalServings={servings}
-            onAddCaffeine={handleAddCaffeine}
-          />
-        </div>
-        <div className="w-full">
-          <InfoWrapper
-            recommended={recommendedCaffeine}
-            total={totalCaffeine}
-            cups={servings}
-            resetTimer={resetTimer}
-            onResetComplete={handleResetComplete}
-          />
-        </div>
-        <p className="italic">
-          *Recommended daily intake is suggested as 6mg/kg of bodyweight
-        </p>
       </div>
       <Footer />
     </div>

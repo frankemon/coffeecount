@@ -47,7 +47,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
     onServingsChange(newTotalServings);
   };
   return (
-    <>
+    <div>
       <p>Select serving size:</p>
       <div className="flex gap-4 w-full">
         <Card
@@ -69,7 +69,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
           onClickMinus={handleClickMinus}
         />
       </div>
-    </>
+    </div>
   );
 };
 

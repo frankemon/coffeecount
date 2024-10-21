@@ -2,7 +2,7 @@ import React from "react";
 
 const Nav: React.FC = () => {
   return (
-    <div className="fixed top-0 w-full border-b p-4 border-white">
+    <div className="fixed top-0 w-full border-b p-4 border-primary">
       <nav className="flex justify-between">
         <p>CoffeeCount</p>
         <ul className="flex justify-center items-center gap-4">

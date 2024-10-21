@@ -26,12 +26,12 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ onCalculate }) => {
           <input
             type="number"
             onChange={handleChange}
-            className="rounded-md p-2 text-bgPrimary bg-textPrimary"
+            className="rounded-md p-2 bg-secondary border-2 border-primary text-primary"
           />
           <button
             type="submit"
             disabled={weight === 0}
-            className="bg-textPrimary text-bgPrimary p-2 rounded-md"
+            className="bg-secondary text-primary p-2 border-2 border-primary rounded-md cursor-pointer"
           >
             Calculate
           </button>

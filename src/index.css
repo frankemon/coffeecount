@@ -5,5 +5,5 @@
 @tailwind utilities;
 
 body {
-  @apply bg-bgPrimary text-textPrimary font-montserrat;
+  @apply bg-secondary text-primary font-montserrat;
 }
