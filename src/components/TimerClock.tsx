@@ -63,7 +63,7 @@ const TimerClock: React.FC<TimerClockProps> = ({
           {seconds.toString().padStart(2, "0")}sec
         </div>
       ) : (
-        <p>Add coffee to start the timer</p>
+        <p className="py-4">Add coffee to start the timer</p>
       )}
     </>
   );

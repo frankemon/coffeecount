@@ -38,15 +38,15 @@ const Card: React.FC<CardProps> = ({
       <div className="flex gap-4">
         <div
           onClick={handleClickMinus}
-          className="flex flex-col justify-center items-center w-8 h-8 rounded-full cursor-pointer bg-primary"
+          className="flex flex-col justify-center items-center w-8 h-8 border-2 border-primary rounded-full cursor-pointer bg-secondary"
         >
-          <FaMinus className="text-secondary" />
+          <FaMinus className="text-primary" />
         </div>
         <div
           onClick={handleClickPlus}
-          className="flex flex-col justify-center items-center w-8 h-8 rounded-full cursor-pointer bg-primary"
+          className="flex flex-col justify-center items-center w-8 h-8 border-2 border-primary rounded-full cursor-pointer bg-secondary"
         >
-          <FaPlus className="text-secondary" />
+          <FaPlus className="text-primary" />
         </div>
       </div>
     </div>

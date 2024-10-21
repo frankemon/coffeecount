@@ -28,6 +28,11 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
     setTime(newTime);
   };
 
+  const handleResetAll = () => {
+    setServings(0);
+    setTotalCaffeine(0);
+  };
+
   React.useEffect(() => {
     setRecommendedCaffeine(recommended);
     setTotalCaffeine(total);
@@ -36,21 +41,24 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
 
   return (
     <div className="">
-      <div className="flex gap-4 justify-center items-center pb-4">
-        <div className="flex flex-col items-center justify-center w-full">
+      <div className="flex gap-4 justify-center items-center py-4">
+        <div className="flex flex-col items-center justify-center w-full gap-4">
           <div>
             Total: {totalCaffeine}mg / Recommended: {recommendedCaffeine}mg
           </div>
-          <div className="h-1 w-full bg-primary"></div>
+          <div className="border-t-2 border-primary w-full rounded-full"></div>
           <div>
             Cups today: <span>{servings}</span>
           </div>
         </div>
         <div>
-          <div className="flex flex-col justify-center items-center mt-4 p-4 border-2 border-primary rounded-md cursor-pointer">
+          <button
+            onClick={handleResetAll}
+            className="flex flex-col justify-center items-center mt-4 p-4 border-2 border-primary rounded-md cursor-pointer"
+          >
             <FaArrowRotateLeft className="bg-secondary" />
             Reset
-          </div>
+          </button>
         </div>
       </div>
       <TimerBar caffeine={totalCaffeine} time={time} />
