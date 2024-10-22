@@ -3,10 +3,8 @@ import cup from "../assets/cup.svg";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa";
 
-// TODO: disable functionality if no weight
-// TODO: disable minus until total caffeine is greater than 0
-
 interface CardProps {
+  type: string;
   size: number;
   caffeine: number;
   onClickPlus: (caffeine: number) => void;
@@ -14,12 +12,13 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({
+  type,
   size,
   caffeine,
   onClickPlus,
   onClickMinus,
 }) => {
-  const scaleValue = caffeine === 50 ? 75 : caffeine === 150 ? 125 : 100;
+  // const scaleValue = caffeine === 50 ? 75 : caffeine === 150 ? 125 : 100;
 
   const handleClickMinus = () => {
     onClickMinus(caffeine);
@@ -30,15 +29,10 @@ const Card: React.FC<CardProps> = ({
   };
   return (
     <div className="flex lg:flex-col justify-between lg:justify-center items-center w-full gap-2 p-2 lg:p-4 border-2 rounded-md border-primary">
-      <p>{size}ml</p>
-      <div className="w-12 hidden lg:block">
-        <img
-          src={cup}
-          // className={`transform scale-${scaleValue}`}
-          alt="White image of a cup"
-        />
-      </div>
-      <p>{caffeine}mg</p>
+      <p>
+        {type}: (~{size}ml)
+      </p>
+      <p>~{caffeine}mg</p>
       <div className="flex gap-4 items-center">
         <div
           onClick={handleClickMinus}
@@ -46,7 +40,7 @@ const Card: React.FC<CardProps> = ({
         >
           <FaMinus className="text-primary" />
         </div>
-        <div className="w-8 sm:block lg:hidden">
+        <div className="w-8">
           <img src={cup} alt="White image of a cup" />
         </div>
         <div

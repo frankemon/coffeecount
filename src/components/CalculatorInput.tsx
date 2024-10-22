@@ -22,7 +22,7 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ onCalculate }) => {
         <label htmlFor="weight" className="">
           Your weight:
         </label>
-        <div className="flex flex-col w-full gap-4">
+        <div className="flex flex-col sm:flex-row w-full gap-4 sm:gap-2">
           <input
             type="number"
             onChange={handleChange}

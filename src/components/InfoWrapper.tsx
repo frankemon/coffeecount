@@ -1,8 +1,7 @@
 import { FaArrowRotateLeft } from "react-icons/fa6";
-import { TimerBar, TimerClock } from "./index";
+import { TimerBar, TimerClock, Modal } from "./index";
 import React from "react";
 
-// TODO: Fix 1 sec delay on timer starting countdown
 interface InfoWrapperProps {
   recommended: number;
   total: number;
@@ -23,6 +22,8 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
   const [totalCaffeine, setTotalCaffeine] = React.useState<number>(0);
   const [servings, setServings] = React.useState<number>(0);
   const [time, setTime] = React.useState<number>(0);
+  const [showHalflifeModal, setShowHalflifeModal] =
+    React.useState<boolean>(false);
 
   const handleTimeChange = (newTime: number) => {
     setTime(newTime);
@@ -33,6 +34,14 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
     setTotalCaffeine(0);
   };
 
+  const onShowHalflifeModal = () => {
+    setShowHalflifeModal(true);
+  };
+
+  const handleCloseHalflifeModal = () => {
+    setShowHalflifeModal(false);
+  };
+
   React.useEffect(() => {
     setRecommendedCaffeine(recommended);
     setTotalCaffeine(total);
@@ -41,6 +50,24 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
 
   return (
     <div className="">
+      {showHalflifeModal && (
+        <Modal onClose={handleCloseHalflifeModal} buttonText={"Okay"}>
+          <div className="flex flex-col gap-4">
+            <p>Hi, it's been 3 hours since you last drank coffee.</p>
+            <p>
+              Caffeine's half-life is typically around 5-6 hours. This means
+              that your caffeine levels have decreased by about half since your
+              last cup.
+            </p>
+            <p>
+              If you're feeling tired or need a boost, now might be a good time
+              to consider another cup of coffee. However, be mindful of your
+              overall caffeine intake and listen to your body.
+            </p>
+            <p>Enjoy!</p>
+          </div>
+        </Modal>
+      )}
       <div className="flex gap-4 justify-center items-center py-4">
         <div className="flex flex-col items-center justify-center w-full gap-4">
           <div>
@@ -67,6 +94,7 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
         onResetComplete={onResetComplete}
         caffeine={totalCaffeine}
         onTimeChange={handleTimeChange}
+        onShowHalflifeModal={onShowHalflifeModal}
       />
     </div>
   );

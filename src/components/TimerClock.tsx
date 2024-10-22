@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 // 6 hours in seconds
 const SIX_HOURS = 6 * 60 * 60;
-// const SIX_HOURS = 10;
 // 3 hours in seconds
 const THREE_HOURS = 3 * 60 * 60;
-// const THREE_HOURS = 5;
 
 interface TimerClockProps {
   caffeine: number;
   resetTimer: boolean;
   onResetComplete: () => void;
   onTimeChange: (newTime: number) => void;
+  onShowHalflifeModal: (showModal: boolean) => void;
 }
 
 const TimerClock: React.FC<TimerClockProps> = ({
@@ -18,6 +17,7 @@ const TimerClock: React.FC<TimerClockProps> = ({
   resetTimer,
   onResetComplete,
   onTimeChange,
+  onShowHalflifeModal,
 }) => {
   const [time, setTime] = useState<number>(SIX_HOURS);
 
@@ -37,9 +37,8 @@ const TimerClock: React.FC<TimerClockProps> = ({
       const interval = setInterval(() => {
         setTime((prevTime) => {
           const newTime = prevTime - 1;
-          // TODO: Show modal for drinking ?
           if (newTime === THREE_HOURS) {
-            console.log("Halfway mark reached, drink a coffee");
+            onShowHalflifeModal(true);
           }
           onTimeChange(newTime);
           return newTime;

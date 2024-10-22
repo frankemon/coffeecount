@@ -51,20 +51,23 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
       <p className="pb-4">Select serving size:</p>
       <div className="flex flex-col lg:flex-row gap-4 w-full">
         <Card
-          size={250}
-          caffeine={50}
+          type={"Espresso"}
+          size={50}
+          caffeine={80}
           onClickPlus={handleClickPlus}
           onClickMinus={handleClickMinus}
         />
         <Card
-          size={330}
-          caffeine={100}
+          type={"Cup"}
+          size={240}
+          caffeine={250}
           onClickPlus={handleClickPlus}
           onClickMinus={handleClickMinus}
         />
         <Card
+          type={"XL cup"}
           size={500}
-          caffeine={150}
+          caffeine={350}
           onClickPlus={handleClickPlus}
           onClickMinus={handleClickMinus}
         />
