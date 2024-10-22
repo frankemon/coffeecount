@@ -8,7 +8,7 @@ interface TimerBarProps {
 const TimerBar: React.FC<TimerBarProps> = ({ caffeine, time }) => {
   // 6 hours half_life
   const HALF_LIFE = 6 * 60 * 60;
-  const [totalCaffeine, setTotalCaffeine] = useState<number>(0);
+  const [, setTotalCaffeine] = useState<number>(0); // Only use the state setter
   const [timeRemaining, setTimeRemaining] = useState<number>(0);
 
   useEffect(() => {
