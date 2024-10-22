@@ -49,7 +49,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
   return (
     <div>
       <p className="pb-4">Select serving size:</p>
-      <div className="flex gap-4 w-full">
+      <div className="flex flex-col lg:flex-row gap-4 w-full">
         <Card
           size={250}
           caffeine={50}

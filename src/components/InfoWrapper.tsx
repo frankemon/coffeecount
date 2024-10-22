@@ -54,7 +54,7 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
         <div>
           <button
             onClick={handleResetAll}
-            className="flex flex-col justify-center items-center mt-4 p-4 border-2 border-primary rounded-md cursor-pointer"
+            className="flex flex-col justify-center items-center mt-4 p-2 lg:p-4 border-2 border-primary rounded-md cursor-pointer"
           >
             <FaArrowRotateLeft className="bg-secondary" />
             Reset

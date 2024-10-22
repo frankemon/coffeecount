@@ -17,12 +17,12 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ onCalculate }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit} className="">
+    <div className="w-full">
+      <form onSubmit={handleSubmit} className="w-full">
         <label htmlFor="weight" className="">
           Your weight:
         </label>
-        <div className="flex justify-center items-center gap-1">
+        <div className="flex flex-col w-full gap-4">
           <input
             type="number"
             onChange={handleChange}

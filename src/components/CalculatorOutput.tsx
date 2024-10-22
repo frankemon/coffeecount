@@ -8,7 +8,7 @@ const CalculatorOutput: React.FC<CalculatorOutputProps> = ({
   recommendedCaffeine,
 }) => {
   return (
-    <div>
+    <div className="w-full text-center">
       {recommendedCaffeine === 0 ? (
         <p>Please fill in your weight!</p>
       ) : (

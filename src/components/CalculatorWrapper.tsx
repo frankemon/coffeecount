@@ -12,7 +12,7 @@ const CalculatorWrapper: React.FC<CalculatorWrapperProps> = ({
   const [recommendedCaffeine, setRecommendedCaffeine] = useState<number>(0);
 
   const handleCalculate = (weight: number) => {
-    const recommendedCaffeine = weight * 6;
+    const recommendedCaffeine = weight * 3;
     setRecommendedCaffeine(recommendedCaffeine);
     // Pass the value up to App.tsx
     onRecommendedCaffeineChange(recommendedCaffeine);
