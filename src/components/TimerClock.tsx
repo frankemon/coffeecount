@@ -40,6 +40,11 @@ const TimerClock: React.FC<TimerClockProps> = ({
           if (newTime === THREE_HOURS) {
             onShowHalflifeModal(true);
           }
+          if (newTime <= 0) {
+            clearInterval(interval);
+            onTimeChange(0);
+            return 0;
+          }
           onTimeChange(newTime);
           return newTime;
         });
@@ -48,7 +53,7 @@ const TimerClock: React.FC<TimerClockProps> = ({
       // Cleanup interval on component unmount
       return () => clearInterval(interval);
     }
-  }, [caffeine]);
+  }, [caffeine, onTimeChange, onShowHalflifeModal]);
 
   const hours = Math.floor(time / 3600);
   const minutes = Math.floor((time % 3600) / 60);
