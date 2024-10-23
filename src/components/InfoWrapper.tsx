@@ -26,6 +26,8 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
   const [time, setTime] = React.useState<number>(0);
   const [showHalflifeModal, setShowHalflifeModal] =
     React.useState<boolean>(false);
+  const [showTimerDoneModal, setShowTimerDoneModal] =
+    React.useState<boolean>(false);
 
   const handleTimeChange = (newTime: number) => {
     setTime(newTime);
@@ -40,9 +42,16 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
   const onShowHalflifeModal = () => {
     setShowHalflifeModal(true);
   };
+  const onShowTimerDoneModal = () => {
+    setShowTimerDoneModal(true);
+  };
 
   const handleCloseHalflifeModal = () => {
     setShowHalflifeModal(false);
+  };
+
+  const handleCloseTimerDoneModal = () => {
+    setShowTimerDoneModal(false);
   };
 
   React.useEffect(() => {
@@ -68,6 +77,22 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
               overall caffeine intake and listen to your body.
             </p>
             <p>Enjoy!</p>
+          </div>
+        </Modal>
+      )}
+      {showTimerDoneModal && (
+        <Modal onClose={handleCloseTimerDoneModal} buttonText={"Okay"}>
+          <div className="flex flex-col gap-4">
+            <p>Hi, it's been 6 hours since you last drank coffee.</p>
+            <p>
+              Caffeine's half-life is typically around 5-6 hours. This means the
+              caffeine should mostly be processed out of your system.
+            </p>
+            <p>
+              If you're feeling tired or need a boost, now might be a good time
+              to consider another cup of coffee. However, be mindful of your
+              overall caffeine intake and listen to your body.
+            </p>
           </div>
         </Modal>
       )}
@@ -98,6 +123,7 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
         caffeine={totalCaffeine}
         onTimeChange={handleTimeChange}
         onShowHalflifeModal={onShowHalflifeModal}
+        onShowTimerDoneModal={onShowTimerDoneModal}
       />
     </div>
   );

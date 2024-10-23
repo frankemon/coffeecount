@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Nav,
@@ -17,6 +17,13 @@ const App: React.FC = () => {
   const [resetTimer, setResetTimer] = useState<boolean>(false);
   const [showDisclaimerModal, setShowDisclaimerModal] =
     useState<boolean>(false);
+  const [unitSystem, setUnitSystem] = useState<"metric" | "imperial">("metric");
+
+  const toggleUnitSystem = () => {
+    setUnitSystem((prevUnitSystem) =>
+      prevUnitSystem === "metric" ? "imperial" : "metric"
+    );
+  };
 
   const handleRecommendedCaffeineChange = (recommended: number) => {
     setRecommendedCaffeine(recommended);
@@ -51,6 +58,10 @@ const App: React.FC = () => {
     setShowDisclaimerModal(false);
   };
 
+  useEffect(() => {
+    console.log("current unitSystem: ", unitSystem);
+  }, [unitSystem]);
+
   return (
     <div className="relative flex flex-col justify-center sm:items-center h-screen font-bold text-sm sm:text-xl">
       <Nav onShowDisclaimerModal={handleShowDisclaimerModal} />
@@ -65,6 +76,8 @@ const App: React.FC = () => {
             <div className="flex flex-col h-full justify-around w-full">
               <CalculatorWrapper
                 onRecommendedCaffeineChange={handleRecommendedCaffeineChange}
+                unitSystem={unitSystem}
+                onToggleUnitSystem={toggleUnitSystem}
               />
             </div>
           ) : (
@@ -77,6 +90,7 @@ const App: React.FC = () => {
                   totalCaffeine={totalCaffeine}
                   totalServings={servings}
                   onAddCaffeine={handleAddCaffeine}
+                  unitSystem={unitSystem}
                 />
               </div>
               <div className="w-full">

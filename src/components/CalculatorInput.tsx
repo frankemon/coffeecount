@@ -2,9 +2,13 @@ import React, { useState } from "react";
 
 interface CalculatorInputProps {
   onCalculate: (weight: number) => void;
+  unitSystem: "metric" | "imperial";
 }
 
-const CalculatorInput: React.FC<CalculatorInputProps> = ({ onCalculate }) => {
+const CalculatorInput: React.FC<CalculatorInputProps> = ({
+  onCalculate,
+  unitSystem,
+}) => {
   const [weight, setWeight] = useState<number>(0);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +24,7 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({ onCalculate }) => {
     <div className="w-full">
       <form onSubmit={handleSubmit} className="w-full">
         <label htmlFor="weight" className="">
-          Your weight:
+          Your weight in {unitSystem === "imperial" ? "lbs" : "kg"}:
         </label>
         <div className="flex flex-col sm:flex-row w-full gap-4 sm:gap-2">
           <input

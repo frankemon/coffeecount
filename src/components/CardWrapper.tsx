@@ -8,6 +8,7 @@ interface CardWrapperProps {
   onTotalCaffeineChange: (caffeine: number) => void;
   onServingsChange: (servings: number) => void;
   onAddCaffeine: () => void;
+  unitSystem: "metric" | "imperial";
 }
 
 const CardWrapper: React.FC<CardWrapperProps> = ({
@@ -17,6 +18,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
   onTotalCaffeineChange,
   onServingsChange,
   onAddCaffeine,
+  unitSystem,
 }) => {
   const handleClickPlus = (caffeine: number) => {
     if (recommendedCaffeine === 0) {
