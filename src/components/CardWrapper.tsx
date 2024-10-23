@@ -34,7 +34,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
       return;
     }
     let newTotalCaffeine = totalCaffeine - caffeine;
-    const newTotalServings = totalServings - 1;
+    let newTotalServings = totalServings - 1;
     // If servings reaches 0, reset caffine
     if (newTotalServings === 0) {
       newTotalCaffeine = 0;
@@ -42,6 +42,7 @@ const CardWrapper: React.FC<CardWrapperProps> = ({
     // If caffeine calculation goes below 0, set to 0
     if (newTotalCaffeine <= 0) {
       newTotalCaffeine = 0;
+      newTotalServings = 0;
     }
     onTotalCaffeineChange(newTotalCaffeine);
     onServingsChange(newTotalServings);

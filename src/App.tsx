@@ -34,6 +34,11 @@ const App: React.FC = () => {
     setResetTimer((prevResetTimer) => !prevResetTimer);
   };
 
+  const handleResetAll = () => {
+    setServings(0);
+    setTotalCaffeine(0);
+  };
+
   const handleResetComplete = () => {
     setResetTimer(false);
   };
@@ -81,6 +86,7 @@ const App: React.FC = () => {
                   cups={servings}
                   resetTimer={resetTimer}
                   onResetComplete={handleResetComplete}
+                  onResetAll={handleResetAll}
                 />
               </div>
               <div className="w-full">

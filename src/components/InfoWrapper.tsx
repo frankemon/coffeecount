@@ -8,6 +8,7 @@ interface InfoWrapperProps {
   cups: number;
   resetTimer: boolean;
   onResetComplete: () => void;
+  onResetAll: () => void;
 }
 
 const InfoWrapper: React.FC<InfoWrapperProps> = ({
@@ -16,6 +17,7 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
   cups,
   resetTimer,
   onResetComplete,
+  onResetAll,
 }) => {
   const [recommendedCaffeine, setRecommendedCaffeine] =
     React.useState<number>(0);
@@ -32,6 +34,7 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
   const handleResetAll = () => {
     setServings(0);
     setTotalCaffeine(0);
+    onResetAll();
   };
 
   const onShowHalflifeModal = () => {
