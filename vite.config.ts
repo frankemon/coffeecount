@@ -14,7 +14,8 @@ export default defineConfig({
   root: "./",
   build: {
     outDir: "dist",
+    assetsDir: "assets", // Specify the directory for static assets
   },
-  base: "/projects/coffeecount/assets/",
+  base: "/projects/coffeecount/",
   publicDir: "public",
 });
