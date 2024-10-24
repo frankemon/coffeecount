@@ -59,16 +59,15 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="relative flex flex-col justify-center sm:items-center h-screen font-bold text-sm sm:text-xl">
-      <Nav onShowDisclaimerModal={handleShowDisclaimerModal} />
-      {/* <div className="mt-20 mb-14 h-full"> */}
-      <div className="h-full w-full lg:max-w-3xl">
-        <div className="w-full h-full flex flex-col items-center justify-around p-4">
-          {showDisclaimerModal && (
-            <Modal onClose={handleCloseDisclaimerModal} buttonText={"Got it!"}>
-              <Disclaimer />
-            </Modal>
-          )}
+    <div className="font-bold h-screen">
+      <div className="flex flex-col justify-center h-full sm:items-center">
+        <Nav onShowDisclaimerModal={handleShowDisclaimerModal} />
+        {showDisclaimerModal && (
+          <Modal onClose={handleCloseDisclaimerModal} buttonText={"Got it!"}>
+            <Disclaimer />
+          </Modal>
+        )}
+        <div className="p-4">
           {recommendedCaffeine === 0 ? (
             <div>
               <CalculatorWrapper
@@ -82,32 +81,28 @@ const App: React.FC = () => {
             </div>
           ) : (
             <>
-              <div className="w-full">
-                <CardWrapper
-                  recommendedCaffeine={recommendedCaffeine}
-                  onTotalCaffeineChange={handleTotalCaffeineChange}
-                  onServingsChange={handleServingsChange}
-                  totalCaffeine={totalCaffeine}
-                  totalServings={servings}
-                  onAddCaffeine={handleAddCaffeine}
-                  unitSystem={unitSystem}
-                />
-              </div>
-              <div className="w-full">
-                <InfoWrapper
-                  recommended={recommendedCaffeine}
-                  total={totalCaffeine}
-                  cups={servings}
-                  resetTimer={resetTimer}
-                  onResetComplete={handleResetComplete}
-                  onResetAll={handleResetAll}
-                />
-              </div>
+              <CardWrapper
+                recommendedCaffeine={recommendedCaffeine}
+                onTotalCaffeineChange={handleTotalCaffeineChange}
+                onServingsChange={handleServingsChange}
+                totalCaffeine={totalCaffeine}
+                totalServings={servings}
+                onAddCaffeine={handleAddCaffeine}
+                unitSystem={unitSystem}
+              />
+              <InfoWrapper
+                recommended={recommendedCaffeine}
+                total={totalCaffeine}
+                cups={servings}
+                resetTimer={resetTimer}
+                onResetComplete={handleResetComplete}
+                onResetAll={handleResetAll}
+              />
             </>
           )}
         </div>
+        <Footer />
       </div>
-      <Footer />
     </div>
   );
 };
