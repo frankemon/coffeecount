@@ -9,6 +9,7 @@ interface CardProps {
   caffeine: number;
   onClickPlus: (caffeine: number) => void;
   onClickMinus: (caffeine: number) => void;
+  unitSystem: "metric" | "imperial";
 }
 
 const Card: React.FC<CardProps> = ({
@@ -17,6 +18,7 @@ const Card: React.FC<CardProps> = ({
   caffeine,
   onClickPlus,
   onClickMinus,
+  unitSystem,
 }) => {
   // const scaleValue = caffeine === 50 ? 75 : caffeine === 150 ? 125 : 100;
 
@@ -30,7 +32,8 @@ const Card: React.FC<CardProps> = ({
   return (
     <div className="flex lg:flex-col justify-between lg:justify-center items-center w-full gap-2 p-2 lg:p-4 border-2 rounded-md border-primary">
       <p>
-        {type}: (~{size}ml)
+        {type}: (~{size}
+        {unitSystem === "imperial" ? "oz" : "ml"})
       </p>
       <p>~{caffeine}mg</p>
       <div className="flex gap-4 items-center">

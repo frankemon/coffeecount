@@ -65,20 +65,22 @@ const App: React.FC = () => {
   return (
     <div className="relative flex flex-col justify-center sm:items-center h-screen font-bold text-sm sm:text-xl">
       <Nav onShowDisclaimerModal={handleShowDisclaimerModal} />
-      <div className="mt-20 mb-14 h-full">
-        <div className="w-full h-full flex flex-col items-center justify-between p-4">
+      {/* <div className="mt-20 mb-14 h-full"> */}
+      <div className="h-full">
+        <div className="w-full h-full flex flex-col items-center justify-around p-4">
           {showDisclaimerModal && (
             <Modal onClose={handleCloseDisclaimerModal} buttonText={"Got it!"}>
               <Disclaimer />
             </Modal>
           )}
           {recommendedCaffeine === 0 ? (
-            <div className="flex flex-col h-full justify-around w-full">
+            <div className="">
               <CalculatorWrapper
                 onRecommendedCaffeineChange={handleRecommendedCaffeineChange}
                 unitSystem={unitSystem}
                 onToggleUnitSystem={toggleUnitSystem}
               />
+              <button onClick={handleShowDisclaimerModal}>Disclaimer</button>
             </div>
           ) : (
             <>
@@ -102,14 +104,6 @@ const App: React.FC = () => {
                   onResetComplete={handleResetComplete}
                   onResetAll={handleResetAll}
                 />
-              </div>
-              <div className="w-full">
-                <p className="italic">
-                  <a href="https://www.efsa.europa.eu/en/topics/topic/caffeine">
-                    *Recommended
-                  </a>{" "}
-                  daily intake is suggested as 3mg/kg of bodyweight
-                </p>
               </div>
             </>
           )}

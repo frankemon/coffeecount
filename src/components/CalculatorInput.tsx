@@ -30,7 +30,7 @@ const CalculatorInput: React.FC<CalculatorInputProps> = ({
           <input
             type="number"
             onChange={handleChange}
-            className="rounded-md p-2 bg-secondary border-2 border-primary text-primary"
+            className="rounded-md p-2 bg-secondary border-2 border-primary text-primary text-base"
           />
           <button
             type="submit"

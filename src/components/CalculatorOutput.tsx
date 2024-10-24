@@ -10,7 +10,7 @@ const CalculatorOutput: React.FC<CalculatorOutputProps> = ({
   return (
     <div className="w-full text-center">
       {recommendedCaffeine === 0 ? (
-        <p>Please fill in your weight!</p>
+        <p>Select unit and fill in your weight</p>
       ) : (
         <p>Your recommended daily intake is: {recommendedCaffeine}mg</p>
       )}

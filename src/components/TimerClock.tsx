@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 // 6 hours in seconds
-// const SIX_HOURS = 6 * 60 * 60;
-const SIX_HOURS = 6;
+const SIX_HOURS = 6 * 60 * 60;
 
 // 3 hours in seconds
-const THREE_HOURS = 3;
+const THREE_HOURS = 3 * 60 * 60;
 
 interface TimerClockProps {
   caffeine: number;

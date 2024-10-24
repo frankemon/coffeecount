@@ -99,7 +99,7 @@ const InfoWrapper: React.FC<InfoWrapperProps> = ({
       <div className="flex gap-4 justify-center items-center py-4">
         <div className="flex flex-col items-center justify-center w-full gap-4">
           <div>
-            Total: {totalCaffeine}mg / Recommended: {recommendedCaffeine}mg
+            Total: {totalCaffeine}mg / Max recommended: {recommendedCaffeine}mg
           </div>
           <div className="border-t-2 border-primary w-full rounded-full"></div>
           <div>
