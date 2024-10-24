@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import {
   Nav,
@@ -58,15 +58,11 @@ const App: React.FC = () => {
     setShowDisclaimerModal(false);
   };
 
-  useEffect(() => {
-    console.log("current unitSystem: ", unitSystem);
-  }, [unitSystem]);
-
   return (
     <div className="relative flex flex-col justify-center sm:items-center h-screen font-bold text-sm sm:text-xl">
       <Nav onShowDisclaimerModal={handleShowDisclaimerModal} />
       {/* <div className="mt-20 mb-14 h-full"> */}
-      <div className="h-full">
+      <div className="h-full w-full lg:max-w-3xl">
         <div className="w-full h-full flex flex-col items-center justify-around p-4">
           {showDisclaimerModal && (
             <Modal onClose={handleCloseDisclaimerModal} buttonText={"Got it!"}>
@@ -74,13 +70,15 @@ const App: React.FC = () => {
             </Modal>
           )}
           {recommendedCaffeine === 0 ? (
-            <div className="">
+            <div>
               <CalculatorWrapper
                 onRecommendedCaffeineChange={handleRecommendedCaffeineChange}
                 unitSystem={unitSystem}
                 onToggleUnitSystem={toggleUnitSystem}
               />
-              <button onClick={handleShowDisclaimerModal}>Disclaimer</button>
+              <button className="mt-4" onClick={handleShowDisclaimerModal}>
+                Disclaimer
+              </button>
             </div>
           ) : (
             <>
