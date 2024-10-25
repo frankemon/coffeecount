@@ -20,8 +20,6 @@ const Card: React.FC<CardProps> = ({
   onClickMinus,
   unitSystem,
 }) => {
-  // const scaleValue = caffeine === 50 ? 75 : caffeine === 150 ? 125 : 100;
-
   const handleClickMinus = () => {
     onClickMinus(caffeine);
   };
