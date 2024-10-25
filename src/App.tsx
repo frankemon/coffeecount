@@ -67,7 +67,7 @@ const App: React.FC = () => {
             <Disclaimer />
           </Modal>
         )}
-        <div className="p-4 lg:w-1/2 lg:max-w-1/2">
+        <div className="p-4 lg:p-0">
           {recommendedCaffeine === 0 ? (
             <div>
               <CalculatorWrapper

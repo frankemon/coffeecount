@@ -28,7 +28,7 @@ const Card: React.FC<CardProps> = ({
     onClickPlus(caffeine);
   };
   return (
-    <div className="flex lg:flex-col justify-between items-center w-full gap-2 lg:gap-4 p-2 lg:p-4 border-2 rounded-md border-primary">
+    <div className="flex lg:flex-col justify-between items-center w-full gap-2 lg:gap-4 p-2 lg:p-4 border-2 rounded-md border-primary lg:min-w-[250px]">
       <p>
         {type}: (~{size}
         {unitSystem === "imperial" ? "oz" : "ml"})
