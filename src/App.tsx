@@ -59,8 +59,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="font-bold h-screen">
-      <div className="flex flex-col justify-center h-full sm:items-center">
+    <div className="flex flex-col h-full w-full">
+      <div className="flex flex-col h-full w-full justify-between lg:items-center">
         <Nav onShowDisclaimerModal={handleShowDisclaimerModal} />
         {showDisclaimerModal && (
           <Modal onClose={handleCloseDisclaimerModal} buttonText={"Got it!"}>
@@ -80,7 +80,7 @@ const App: React.FC = () => {
               </button>
             </div>
           ) : (
-            <>
+            <div>
               <CardWrapper
                 recommendedCaffeine={recommendedCaffeine}
                 onTotalCaffeineChange={handleTotalCaffeineChange}
@@ -98,12 +98,58 @@ const App: React.FC = () => {
                 onResetComplete={handleResetComplete}
                 onResetAll={handleResetAll}
               />
-            </>
+            </div>
           )}
         </div>
+
         <Footer />
       </div>
     </div>
+    // <div className="font-bold h-screen">
+    //   <div className="flex flex-col justify-center h-full sm:items-center">
+    //     <Nav onShowDisclaimerModal={handleShowDisclaimerModal} />
+    //     {showDisclaimerModal && (
+    //       <Modal onClose={handleCloseDisclaimerModal} buttonText={"Got it!"}>
+    //         <Disclaimer />
+    //       </Modal>
+    //     )}
+    //     <div className="p-4 lg:p-0">
+    //       {recommendedCaffeine === 0 ? (
+    //         <div>
+    //           <CalculatorWrapper
+    //             onRecommendedCaffeineChange={handleRecommendedCaffeineChange}
+    //             unitSystem={unitSystem}
+    //             onToggleUnitSystem={toggleUnitSystem}
+    //           />
+    //           <button className="mt-4" onClick={handleShowDisclaimerModal}>
+    //             Disclaimer
+    //           </button>
+    //         </div>
+    //       ) : (
+    //         <>
+    //           <CardWrapper
+    //             recommendedCaffeine={recommendedCaffeine}
+    //             onTotalCaffeineChange={handleTotalCaffeineChange}
+    //             onServingsChange={handleServingsChange}
+    //             totalCaffeine={totalCaffeine}
+    //             totalServings={servings}
+    //             onAddCaffeine={handleAddCaffeine}
+    //             unitSystem={unitSystem}
+    //           />
+    //           <InfoWrapper
+    //             recommended={recommendedCaffeine}
+    //             total={totalCaffeine}
+    //             cups={servings}
+    //             resetTimer={resetTimer}
+    //             onResetComplete={handleResetComplete}
+    //             onResetAll={handleResetAll}
+    //           />
+    //         </>
+    //       )}
+    //     </div>
+    //     <Footer />
+    //   </div>
+    // </div>
   );
 };
 

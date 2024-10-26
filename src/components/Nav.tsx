@@ -17,7 +17,7 @@ const Nav: React.FC<NavProps> = ({ onShowDisclaimerModal }) => {
   };
 
   return (
-    <div className="fixed top-0 w-full border-b-2 border-primary font-bold bg-secondary">
+    <div className=" top-0 w-full border-b-2 border-primary font-bold bg-secondary">
       <nav className="relative flex justify-between items-center py-2 px-4 lg:p-4">
         <p>CoffeeCount</p>
         <div onClick={handleMenuClick} className="w-8 lg:hidden cursor-pointer">
@@ -25,7 +25,7 @@ const Nav: React.FC<NavProps> = ({ onShowDisclaimerModal }) => {
         </div>
         <ul
           className={`lg:flex lg:flex-row lg:gap-8 lg:static lg:shadow-none lg:bg-transparent lg:border-none lg:space-y-0 lg:py-0 
-            absolute z-50 top-20 left-0 mt-[-1px] lg:mt-0 w-full flex flex-col justify-end items-center py-8 space-y-8 gap-4 border-b-2 shadow-md bg-secondary transition-all duration-300 ease-in-out ${
+            absolute z-50 top-14 left-0 mt-[-1px] lg:mt-0 w-full flex flex-col justify-end items-center py-8 space-y-8 gap-4 border-b-2 shadow-md bg-secondary transition-all duration-300 ease-in-out ${
               showMenu
                 ? "max-h-screen opacity-100"
                 : "max-h-0 opacity-0 lg:max-h-full lg:opacity-100"
