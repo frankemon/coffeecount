@@ -23,7 +23,9 @@ const TimerClock: React.FC<TimerClockProps> = ({
   onShowTimerDoneModal,
 }) => {
   const [time, setTime] = useState<number>(SIX_HOURS);
+  const [, setOutofFocus] = useState<number>(0);
   const lastTimeRef = useRef<number>(Date.now());
+  const lastVisibleTimeRef = useRef<number>(Date.now());
 
   useEffect(() => {
     if (resetTimer) {
@@ -58,10 +60,35 @@ const TimerClock: React.FC<TimerClockProps> = ({
         lastTimeRef.current = Date.now();
       }, 1000);
 
-      // Cleanup interval on component unmount
       return () => clearInterval(interval);
     }
   }, [caffeine, onTimeChange, onShowHalflifeModal, onShowTimerDoneModal]);
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "hidden") {
+        setOutofFocus((prevOutOfFocus) => prevOutOfFocus + 1);
+        lastVisibleTimeRef.current = Date.now();
+      } else if (document.visibilityState === "visible") {
+        const currentTime = Date.now();
+        const elapsedTime = (currentTime - lastVisibleTimeRef.current) / 1000; // Convert to seconds
+        if (elapsedTime > 1) {
+          setTime((prevTime) => {
+            const adjustedTime = prevTime - Math.floor(elapsedTime);
+            onTimeChange(adjustedTime);
+            return adjustedTime;
+          });
+        }
+        lastTimeRef.current = currentTime;
+      }
+    };
+
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
+    return () => {
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+    };
+  }, [onTimeChange]);
 
   const hours = Math.floor(time / 3600);
   const minutes = Math.floor((time % 3600) / 60);

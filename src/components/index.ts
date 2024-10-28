@@ -1,7 +1,6 @@
 export { default as Nav } from "./Nav.tsx";
 export { default as CalculatorWrapper } from "./CalculatorWrapper.tsx";
 export { default as CalculatorInput } from "./CalculatorInput.tsx";
-export { default as CalculatorOutput } from "./CalculatorOutput.tsx";
 export { default as CardWrapper } from "./CardWrapper.tsx";
 export { default as TimerClock } from "./TimerClock.tsx";
 export { default as TimerBar } from "./TimerBar.tsx";
